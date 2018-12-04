@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1543950351214" createdUser="jc" id="-11c20520:1677a9b785e:-7e6d" selfDescribing="it-rtcp-master.nonprod.hclpnp.com (10.134.59.65)" type="host_machine_resource" updatedTimestamp="1543950351214" updatedUser="jc" version="1.0">
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig host_address="10.134.59.65" user_host_name="it-rtcp-master.nonprod.hclpnp.com">
+      <roles>
+         <identity name="ssh" port="22"/>
+      </roles>
+   </resourceConfig>
+</editableResource>

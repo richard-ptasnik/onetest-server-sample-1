@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><_c certificateAuthority="KEY_1024_BITS" comments="Project created on 4 December 2018" creationVersion="@MAJ@.@MIN@.@PNT@" domain="jchewter" extDocPrefix="" name="Sample Integration Project" owner="jc" rulesCacheUri="%%PROJECT/ROOT%%Rules" uuid="00000167-7a9b-7637-0001-a8a8430914e8">
+  <dateTimeConfig date="yyyy/MM/dd" dateTime="dd-MMM-yyyy HH:mm:ss" time="HH:mm:ss.SSS"/>
+   <serverSettings autoPublishing="false" ghRepositoryURL="https://it-rtcp-master.nonprod.hclpnp.com:5443/RTCP/" trustSource="TRUST_ALL" trustStorePath="">
+      <dbConnectionParameters maxConnections="5" poolName="DefaultPoolName">
+         <connectionParams CICSEnv="false" MVSEnv="false" ZOSEnv="false" driverClass="" password="#com.ghc.1!f5e2" recordFilters="" schema="" url="" useSsl="false" user="">
+            <stubSettings maxProcCallCount="10000" maxResultSetRowCount="10000" maxRowCount="10000" password="#com.ghc.1!608f" procedureLearningBehaviour="1" schema="" url="" useIntegratedDB="true" user=""/>
+            <storedProcedureFilter catalogFilterEnabled="false" catalogFilterPattern="" procedureFilterEnabled="false" procedureFilterPattern="" schemaFilterEnabled="true" schemaFilterPattern="" storedProceduresRetrievalEnabled="false" useConnectionUsername="true"/>
+            <timestampFormatting timestampFormatZero="false" timestampFormattingEnabled="false" timestampPrecision="9"/>
+         </connectionParams>
+      </dbConnectionParameters>
+   </serverSettings>
+   <permissionsSettings autoLogin="true" host="US-PNP-DC05" permFactId="rtcp.permissions.factory.none" port="389" pswd="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+</_c>
