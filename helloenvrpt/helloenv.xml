@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inits>
+  <variable_init value="10.121.104.41" name="myapp_Host" />
+</inits>
