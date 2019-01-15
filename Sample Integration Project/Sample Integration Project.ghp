@@ -9,5 +9,5 @@
          </connectionParams>
       </dbConnectionParameters>
    </serverSettings>
-   <permissionsSettings autoLogin="true" host="US-PNP-DC05" permFactId="rtcp.permissions.factory.none" port="389" pswd="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+   <permissionsSettings autoLogin="true" host="US-PNP-DC05" permFactId="ldap.permissions.factory.none" port="389" pswd="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
 </_c>
