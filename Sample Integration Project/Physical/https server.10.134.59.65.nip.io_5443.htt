@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1543950343574" createdUser="jc" id="-11c20520:1677a9b785e:-7ed2:1437688209:1544155186" selfDescribing="https server.10.134.59.65.nip.io:5443" type="http_transport" updatedTimestamp="1547820471983" updatedUser="OWEN.BURROUGHS" version="1.0">
+   <syncdetails compare="https it-rtcp-master.nonprod.hclpnp.com:5443" lastSynced="1543950343574" sourceid="-11c20520:1677a9b785e:-7ed2">
+      <sourcepath path="CalculatorPortBindingService/CalculatorPortBindingSoap11"/>
+   </syncdetails>
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig transportName="" transportTemplateName="HTTP">
+      <messageProperties ReasonPhrase="No Stub available that matches the request" clientConnectionsPerHost="100" credDomain="" credPassword="#com.ghc.1!dd11" credPreemptive="false" credType="0" credUser="" httpHost="server.10.134.59.65.nip.io" httpNtlmDomain="" httpPort="5443" httpProxyHost="" httpProxyPassword="#com.ghc.1!0160" httpProxyPort="" httpProxyUsername="" httpServerSocketBindAddressOverride="" httpServerSocketPortOverride="" httpSocketTimeout="" httpTimeoutResponseCode="503" httpVirtualHost="" recType="PROXY" useSsl="true" version="4">
+         <kerberos Anon="false" Conf="false" Custom="true" Enabled="false" Integ="false" KDC="" Loc="" MutAuth="false" Principal="" Pwd="#com.ghc.1!3606" Realm="" RepDet="false" SSO="false" SeqCheck="false"/>
+         <serverAuthentication>
+            <authenticationConfig enabled="false" realm="" type="1"/>
+            <authenticationConfig algorithm="" authParams="" domain="" enabled="false" nonce="false" opaque="" qop="" realm="" stale="" type="2"/>
+            <authenticationConfig enabled="false" type="3"/>
+            <authenticationConfig enabled="false" type="5"/>
+         </serverAuthentication>
+      </messageProperties>
+   </resourceConfig>
+</editableResource>
