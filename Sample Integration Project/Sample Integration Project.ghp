@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><_c certificateAuthority="KEY_1024_BITS" comments="Project created on 4 December 2018" creationVersion="@MAJ@.@MIN@.@PNT@" domain="jchewter" extDocPrefix="" name="Sample Integration Project" owner="jc" rulesCacheUri="%%PROJECT/ROOT%%Rules" uuid="00000167-7a9b-7637-0001-a8a8430914e8">
-  <dateTimeConfig date="yyyy/MM/dd" dateTime="dd-MMM-yyyy HH:mm:ss" time="HH:mm:ss.SSS"/>
+   <rootEnvironmentConfig isOverridingVaultNamespace="false" overridingVaultNamespace="">
+      <environmentVariable evdescription="" key="TEST_MESSAGE" value=""/>
+   </rootEnvironmentConfig>
+   <dateTimeConfig date="yyyy/MM/dd" dateTime="dd-MMM-yyyy HH:mm:ss" time="HH:mm:ss.SSS"/>
    <serverSettings autoPublishing="false" ghRepositoryURL="https://server.10.134.59.65.nip.io:5443/RTCP/" trustSource="TRUST_ALL" trustStorePath="">
       <dbConnectionParameters maxConnections="5" poolName="DefaultPoolName">
          <connectionParams CICSEnv="false" MVSEnv="false" ZOSEnv="false" driverClass="" password="#com.ghc.1!f5e2" recordFilters="" schema="" url="" useSsl="false" user="">
