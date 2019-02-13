@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1550070276068" createdUser="OWEN.BURROUGHS" id="4f6659c6:168e762acf8:-7eac" type="simple_test_data" updatedTimestamp="1550070469041" updatedUser="OWEN.BURROUGHS" version="1.0">
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig autoMapColumns="true" columnCount="" datasourceType="Delimited" escapeQuotedString="true" hasColumnNamesLine="true" linesBeforeColumnNames="0" linesToSkip="0" location="%%PROJECT/ROOT_DIRECTORY%%/extendedNumbers.csv" loop="false" paddingChar="" parsingType="OffsetLength" separator="," treatEmptyStringAsNull="false" treatTextAsEmpty="false" treatTextAsEmptyValue="" treatTextAsNull="false" treatTextAsNullValue="" trim="false"/>
+</editableResource>
