@@ -24,6 +24,7 @@ public class Class implements com.ibm.rational.test.lt.kernel.custom.ICustomCode
 		String localWBVersion = args[0];
 		String expectedCompatible = args[1].toLowerCase();
 		String content = args[2];
+		String datasetInput = args[3];
 		
 		ITestLogManager testlog = tes.getTestLogManager();
 		boolean actuallyCompatible = content.contains("imageTemplates");
@@ -46,6 +47,12 @@ public class Class implements com.ibm.rational.test.lt.kernel.custom.ICustomCode
 		} else {
 			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_ERROR);
 			testlog.reportErrorCondition(RPTCondition.CustomCodeAlert);
+		}
+		
+		if (datasetInput.compareTo("PASS") == 0) {
+			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_PASS);
+		} else {
+			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_FAIL);
 		}
 		
 		return null;

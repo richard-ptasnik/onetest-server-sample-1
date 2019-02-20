@@ -14,6 +14,8 @@
 /* TestScript.template - Suitable for collaborative code generation */
 package test;
 
+import com.ibm.rational.test.lt.datacorrelation.datapoolAction.Datapool;
+import com.ibm.rational.test.lt.datacorrelation.datapoolAction.DatapoolAction;
 import com.ibm.rational.test.lt.datacorrelation.execution.action.CustomCodeAction;
 import com.ibm.rational.test.lt.datacorrelation.execution.action.VariableAction;
 import com.ibm.rational.test.lt.datacorrelation.execution.harvest.DataCorrelationVar;
@@ -57,7 +59,7 @@ public class VerifyCloud_Test_A1E9351427557200CCACB43336396138 extends LTTestScr
 pa.addPA("com.ibm.rational.test.lt.datacorrelation.execution.http.HTTPActionAdapter", "com.ibm.rational.test.lt.execution.http.impl.HTTPPostDataChunk");
 pa.addPA("com.ibm.rational.test.lt.datacorrelation.execution.http.HTTPActionAdapter", "com.ibm.rational.test.lt.execution.http.impl.HTTPAction");
     }
-	private IDataCorrelationVar[] dcVars = DataCorrelationVar.getArrayDCVars(2);
+	private IDataCorrelationVar[] dcVars = DataCorrelationVar.getArrayDCVars(3);
 	private DataVar[] vars = new DataVar[4];
 	
     
@@ -104,10 +106,11 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 	}
 	
 	
-	        	this.add(varAction_1(this));
+	        	this.add(datapool_1(this));
+	this.add(varAction_1(this));
 	this.add(confCon_1(this));
-	this.add(new CustomCode_1(this, dcVars[0]));
-	this.add(new CustomCode_2(this, dcVars[1]));
+	this.add(new CustomCode_1(this, dcVars[1]));
+	this.add(new CustomCode_2(this, dcVars[2]));
 			this.httpTestScriptHelper.executeHelper();
 
 	    } catch (Throwable e) {
@@ -128,7 +131,23 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 		super.stop();
 	}	
 	
-	private VariableAction varAction_1(final IContainer parent) {
+	
+	private DatapoolAction datapool_1(IContainer parent) {
+		DatapoolAction dpAction = new DatapoolAction(parent, "VerifyCloudPass.csv", "A1E9352B976DEBA0CCACB43336396138", false);
+		Datapool dp = new Datapool(
+				 "/L1NldHRpbmdzRlZUL0RhdGFzZXRzL1ZlcmlmeUNsb3VkUGFzcy5jc3Y=.csv",
+				 "C:\\temp\\ds\\settings1\\SettingsFVT\\Datasets\\VerifyCloudPass.csv",
+				 0,
+				 true,
+				 false,
+				 Datapool.SEQUENTIAL,
+				 null, 0, false, getVirtualUserName());
+		dp.addHarvestInstruction("INPUT", dcVars[0], false);
+		dpAction.setDatapool(dp);
+		return dpAction;
+	}
+
+private VariableAction varAction_1(final IContainer parent) {
 
 	VariableAction vc = new VariableAction(parent, "", "A1E93514276F1480CCACB43336396138");	
 			vars[0] = new DataVar("VerifyCloud_Host", "rptcloudmgr.rational.ibmcloud.com", IDataArea.TEST, "IGNORE", false, false);
@@ -137,10 +156,10 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 		vars[1] = new DataVar("VerifyCloud_Host_Port", "443", IDataArea.TEST, "IGNORE", false, false);
 
 	
-		vars[2] = new DataVar("localWBVersion", "9212", IDataArea.TEST, "IGNORE", false, false);
+		vars[2] = new DataVar("localWBVersion", "9211", IDataArea.VIRTUALUSER, "IGNORE", false, false);
 
 	
-		vars[3] = new DataVar("compatible", "true", IDataArea.TEST, "IGNORE", false, false);
+		vars[3] = new DataVar("compatible", "true", IDataArea.VIRTUALUSER, "IGNORE", false, false);
 
 		
 	vc.add(vars);
@@ -242,6 +261,7 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 			IDCCoreVar[] inputVars = {
 				vars[2],
 vars[3],
+dcVars[1],
 dcVars[0]
 			};
 			
