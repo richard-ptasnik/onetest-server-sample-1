@@ -17,42 +17,18 @@ package test;
 import com.ibm.rational.test.lt.datacorrelation.execution.action.CustomCodeAction;
 import com.ibm.rational.test.lt.datacorrelation.execution.action.VariableAction;
 import com.ibm.rational.test.lt.datacorrelation.execution.harvest.DataCorrelationVar;
-import com.ibm.rational.test.lt.datacorrelation.execution.harvest.DataHarvester;
 import com.ibm.rational.test.lt.datacorrelation.execution.harvest.DataVar;
-import com.ibm.rational.test.lt.datacorrelation.execution.harvest.IDCArray;
 import com.ibm.rational.test.lt.datacorrelation.execution.harvest.IDCCoreVar;
 import com.ibm.rational.test.lt.datacorrelation.execution.harvest.IDataCorrelationVar;
-import com.ibm.rational.test.lt.datacorrelation.execution.harvest.IDataHarvester;
 import com.ibm.rational.test.lt.datacorrelation.execution.proto.ProtoAdapterHandler;
-import com.ibm.rational.test.lt.datacorrelation.execution.sub.DataSub;
-import com.ibm.rational.test.lt.datacorrelation.execution.sub.IDataSub;
-import com.ibm.rational.test.lt.datacorrelation.execution.sub.ISubRule;
-import com.ibm.rational.test.lt.datacorrelation.execution.sub.SubRule;
 import com.ibm.rational.test.lt.execution.core.impl.LTTestScript;
 import com.ibm.rational.test.lt.execution.http.IBasicAuthentication;
-import com.ibm.rational.test.lt.execution.http.IConnectionRecord;
-import com.ibm.rational.test.lt.execution.http.IHTTPRequest;
-import com.ibm.rational.test.lt.execution.http.IHTTPSessionTypes;
 import com.ibm.rational.test.lt.execution.http.INtlmAuthenticationContext;
 import com.ibm.rational.test.lt.execution.http.ISSLInfo;
-import com.ibm.rational.test.lt.execution.http.connection.IConnectionLimitsAlgorithm;
 import com.ibm.rational.test.lt.execution.http.impl.ConfigConnection;
-import com.ibm.rational.test.lt.execution.http.impl.DynamicHTTPRequestsContainer;
-import com.ibm.rational.test.lt.execution.http.impl.DynamicRequestContainer;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPAction;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPPage;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPParallel;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPPostData;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPRequest;
-import com.ibm.rational.test.lt.execution.http.impl.HTTPThink;
-import com.ibm.rational.test.lt.execution.http.impl.INextActionGenerator;
-import com.ibm.rational.test.lt.execution.http.impl.PerHostPortConnectionAlgorithm;
-import com.ibm.rational.test.lt.execution.http.impl.RequestHeaderData;
 import com.ibm.rational.test.lt.execution.http.impl.SSLInfo;
 import com.ibm.rational.test.lt.execution.http.tes.*;
-import com.ibm.rational.test.lt.execution.http.util.ConnectionRecordFactory;
 import com.ibm.rational.test.lt.execution.http.util.CookieCacheUtil;
-import com.ibm.rational.test.lt.execution.http.util.HTTPDataArea;
 import com.ibm.rational.test.lt.execution.http.util.PageCacheUtil;
 import com.ibm.rational.test.lt.execution.protocol.IProxyServerInfo;
 import com.ibm.rational.test.lt.execution.protocol.impl.HTTPTestScriptHelper;
@@ -69,7 +45,6 @@ import com.ibm.rational.test.lt.kernel.services.RPTCustomCodeExceptionEvent;
 import com.ibm.rational.test.lt.kernel.services.RPTCustomCodeVPFailureEvent;
 import com.ibm.rational.test.lt.kernel.services.RPTEvent;
 import com.ibm.rational.test.lt.kernel.services.RPTEventStructure;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -131,7 +106,8 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 	
 	        	this.add(varAction_1(this));
 	this.add(confCon_1(this));
-	this.add(page_1(this));
+	this.add(new CustomCode_1(this, dcVars[0]));
+	this.add(new CustomCode_2(this, dcVars[1]));
 			this.httpTestScriptHelper.executeHelper();
 
 	    } catch (Throwable e) {
@@ -161,7 +137,7 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 		vars[1] = new DataVar("VerifyCloud_Host_Port", "443", IDataArea.TEST, "IGNORE", false, false);
 
 	
-		vars[2] = new DataVar("localWBVersion", "9211", IDataArea.TEST, "IGNORE", false, false);
+		vars[2] = new DataVar("localWBVersion", "9212", IDataArea.TEST, "IGNORE", false, false);
 
 	
 		vars[3] = new DataVar("compatible", "true", IDataArea.TEST, "IGNORE", false, false);
@@ -196,127 +172,6 @@ this.addEventBehavior(new RPTEventStructure(new HTTPPageTitleVPEvent(), new RPTC
 		return action;		
 	}
 
-private HTTPPage page_1(final IContainer parent) {
-			HTTPThink think = new HTTPThink(0, 1, parent, parent, "A1E9351427A42E47CCACB43336396138");
-	parent.add(think);
-	
-		HTTPPage page = new HTTPPage(parent, "v1_compatibility", "A1E9351427A42E47CCACB43336396138") {
-			
-			public void execute() {   
-				
-	
-	
-	
-	
-			             
-			{ // Parallal Block Start
-				HTTPParallel httpParallel = new HTTPParallel(1, this);
-				this.add(httpParallel);
-
-				// httpParallel.addRequest(int serial, HTTPAction action, int actionDelay, String firstCharSemID) 
-				httpParallel.addRequest(0, request_1(this, true, "A1E9351427A2F5C0CCACB43336396138", true, true,
-						"Config_1", "rptcloudmgr.rational.ibmcloud.com:443/rptcloudmgr/v1/compatibility?localWBVersion=9211",	"/rptcloudmgr/v1/compatibility?localWBVersion=9211", true, false), 0, 100, "null", 3);
-			} // Parallal Block End 
-
-	this.add(new CustomCode_1(this, dcVars[1]));
-			
-				super.execute();
-			}
-		};
-		
-		
-		page.setRemoveDelaysFromPageResponseTimes(false);
-		page.setArmEnabled(false);  
-		return page;
-	}
-
-	public HTTPAction request_1(IContainer parent, boolean isFirstInParallelGroup, String parallelGroup, 
-					boolean connectionClose, boolean isPrimary, String connConfigName, String actionName, String url, boolean isURLRelative, boolean useSubstitutedUriInReports) 
-	{	
-		
-		HTTPAction reqAction = new HTTPAction(parent, actionName, "A1E9351427A76297CCACB43336396138", getHTTPTest());
-		HTTPPage myPage = reqAction.getPage();
-		
-		// add the action to the page-global action map for possible semaphore use
-		myPage.getActionMap().put(reqAction.getId(), reqAction);
-				
-			
-	
-	
-	
-	
-		
-		ArrayList<RequestHeaderData> headers = new ArrayList<RequestHeaderData>(8);
-					
-		headers.add(new RequestHeaderData("Host", "rptcloudmgr.rational.ibmcloud.com", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Connection", "keep-alive", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Cache-Control", "max-age=0", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Upgrade-Insecure-Requests", "1", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Accept-Encoding", "gzip, deflate, br", "UTF-8", 1));			
-		headers.add(new RequestHeaderData("Accept-Language", "en-US,en;q=0.9", "UTF-8", 1));
-
-				
-			
-					
-		IBasicAuthentication basicAuth = null;
-			IDataHarvester harvestContainer_1 = new DataHarvester();
-	reqAction.addDataHarvester (harvestContainer_1);
-
-	harvestContainer_1.addHarvestInstruction ("resp_content", dcVars[0], ".*", 1, 0, 0, 0, false, "Response", null, 0, false);
-	IDataSub subContainer_1 = new DataSub();
-	reqAction.addDataSub(subContainer_1);
-
-		ISubRule sub_0 = new SubRule("req_uri", 45, 4, true, (IDCCoreVar)vars[2], false, "localWBVersion", null, 0, false);
-	subContainer_1.addSubInstruction(sub_0);
-		ISubRule sub_1 = new SubRule("req_hdr_Host_1", 0, 33, false, (IDCCoreVar)vars[0], false, "Host_2", null, 0, false);
-	subContainer_1.addSubInstruction(sub_1);
-	
-
-
-		
-				
-		IConnectionRecord serverConnection = ConnectionRecordFactory.find(parent, 
-				parallelGroup, connConfigName,
-				true, // close connection at test boundary,
-				null, 0, 1); // error behavior
-		reqAction.io2=serverConnection.getHttp2ioConnector();
-		IHTTPRequest req = new HTTPRequest(
-			"GET",	// method
-			"https",  // protocol - http or https
-			url, isURLRelative,
-			"1.1",	// version
-			headers,
-			IHTTPSessionTypes.STANDARD,
-			0, // delay
-			isPrimary,
-			null,// post data
-			basicAuth,
-			serverConnection,
-			reqAction,
-			"UTF-8",
-			"UTF-8",
-			"A1E9351427A789A0CCACB43336396138",
-			true,
-			false
-		);
-		
-		req.setExpectedResponseCode(200);
-		req.setConnectionClose(connectionClose);
-		
-
-		reqAction.setFirstRequestInParallel(isFirstInParallelGroup);
-		reqAction.setRequest(req);
-		reqAction.setArmEnabled(false);
-		reqAction.setResponseContentType("application/json");
-		reqAction.setConnectionGroup(parallelGroup);
-		reqAction.setDoesHarvesterRequireContent(true);
-		reqAction.setUseSubstitutedUriInReports(useSubstitutedUriInReports);
-		
-		
-		return reqAction;
-	}
 
 	public class CustomCode_1 extends CustomCodeAction {
 
@@ -326,6 +181,48 @@ private HTTPPage page_1(final IContainer parent) {
 		 * @param name
 		 */
 		public CustomCode_1(IContainer parent, IDataCorrelationVar outVar) {
+			super(parent, "customcode.Product", "A1E9352388F55DE0CCACB43336396138");
+			this.outVar = outVar;
+		}
+	
+		/**
+		 * @see com.ibm.rational.test.lt.kernel.action.IKAction#execute()
+		 */
+		public void execute() {
+		
+				
+	
+	
+	
+	
+	
+	
+			IDCCoreVar[] inputVars = {
+				vars[2]
+			};
+			
+			ICustomCode2 ccclass = 	new customcode.Product();
+			
+			setCCClass(ccclass);
+			setInputVars(inputVars);
+			setOutVar(outVar);
+			
+			super.execute();
+
+		}
+	}
+
+
+
+
+	public class CustomCode_2 extends CustomCodeAction {
+
+		IDataCorrelationVar outVar;
+		/**
+		 * @param parent
+		 * @param name
+		 */
+		public CustomCode_2(IContainer parent, IDataCorrelationVar outVar) {
 			super(parent, "customcode.Class", "A1E93515B8804470CCACB43336396138");
 			this.outVar = outVar;
 		}
