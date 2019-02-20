@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1549894040630" createdUser="OWEN.BURROUGHS" id="-6bcd550e:168dcdee412:-7e89" type="test_resource" updatedTimestamp="1549894748041" updatedUser="OWEN.BURROUGHS" version="1.1">
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig description="" name="">
+      <testTree>
+         <editableResource id="-6bcd550e:168dcdee412:-7d78" selfDescribing="The log actions enables you to output messages to console and a logging file." type="logging_action" version="1.0">
+            <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+            <resourceConfig append="true" description="" flush="true" loggingMessage="TEST_MESSAGE is %%TEST_MESSAGE%%" name="TEST_MESSAGE is %%TEST_MESSAGE%%" outputFile="" role="0"/>
+         </editableResource>
+         <editableResource id="-6bcd550e:168dcdee412:-7dfd" selfDescribing="Iterate over a test data set" type="iterate_action" version="1.0">
+            <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+            <resourceConfig description="" disableMappings="false" iterationContributor="true" maxIterationTime="0.0" maxIterationTimeExceededFailsTest="false" maxTotalIterationTime="0.0" maxTotalIterationTimeExceededFailsTest="false" name=" over NumbersDataset" option="NOTHING" pacingtime="0.0" pacingtype="MIN_DURATION" performanceDisableValidation="false" performanceInstances="1" performanceInterleave="false" performanceMaximumIterationTime="0" performanceMaximumTestTime="0" performanceUseMaximumIterationTime="false" performanceUseMaximumTestTime="false" remoteAgent="" reportingLogIterations="1" reportingLogLogMessages="8" reportingLogMessages="4" reportingLogScriptExitCodes="8" reportingLogScriptOutput="8" reportingLogTagValues="8" reportingLogTimes="8" runSettingsContinueOnFail="true" runSettingsDelayEnabled="false" runSettingsDelayType="Fixed Delay" runSettingsIterations="" runSettingsMaximumDelayValue="0" runSettingsMinimumDelayValue="0" runSettingsRunFor="0" runSettingsRunType="Once Only" runSettingsTestDescription="" type="script:ECMAScript" useMaxIterationTime="false" useMaxTotalIterationTime="false" usepacing="false">
+               <testDataSetReference id="-6bcd550e:168dcdee412:-7ea2" lkname="NumbersDataset" lkpath="calculator/NumbersDataset" type="simple_test_data"/>
+               <mapper disableFiltersWhenEmpty="false" knownColumns="x,y,sum" noAutoMap="">
+                  <mapping columnName="x" tagName="testX" type="4"/>
+                  <mapping columnName="y" tagName="testY" type="4"/>
+                  <mapping columnName="sum" tagName="testSum" type="4"/>
+               </mapper>
+               <testTree>
+                  <editableResource id="-6bcd550e:168dcdee412:-7cc2" selfDescribing="Execute a function and optionally tag the results. Use predefined functions, custom plug-ins and tagged data." type="function_action" version="1.0">
+                     <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+                     <resourceConfig description="" eval_type="Mozilla Rhino" function="(Number(tags[&quot;testX&quot;]) + Number(tags[&quot;testY&quot;])).toFixed(0) == Number(tags[&quot;testSum&quot;]).toFixed(0)" name="Run &quot;(Number(tags[&quot;testX&quot;]) + Number(tags[&quot;testY&quot;])).toFixed(0) == Number(tags[&quot;testSum&quot;]).toFixed(0)&quot;, store into&quot;result&quot;">
+                        <fieldActionGroup>
+                           <fieldAction description="Store copy of field in tag 'newTag'" tN="result" type="2">
+                              <dataAction type="Copy"/>
+                           </fieldAction>
+                        </fieldActionGroup>
+                     </resourceConfig>
+                  </editableResource>
+                  <editableResource id="-6bcd550e:168dcdee412:-7dce" selfDescribing="The log actions enables you to output messages to console and a logging file." type="logging_action" version="1.0">
+                     <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+                     <resourceConfig append="true" description="" flush="true" loggingMessage="%%testX%% + %%testY%% = %%testSum%% is %%result%%" name="%%testX%% + %%testY%% = %%testSum%% is %%result%%" outputFile="" role="0"/>
+                  </editableResource>
+               </testTree>
+            </resourceConfig>
+         </editableResource>
+      </testTree>
+      <tagDataStore inputMode="NONE" outputMode="NONE">
+         <tag defaultValue="" description="" name="testX"/>
+         <tag defaultValue="" description="" name="testY"/>
+         <tag defaultValue="" description="" name="result"/>
+         <tag defaultValue="" description="" name="testSum"/>
+      </tagDataStore>
+      <testprops messageClearance="false"/>
+   </resourceConfig>
+</editableResource>
