@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1551959419528" createdUser="OWEN.BURROUGHS" id="-575f57c7:16957fcf195:-7ea9" type="environment_resource" updatedTimestamp="1551959445364" updatedUser="OWEN.BURROUGHS" version="1.0">
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig isOverridingVaultNamespace="false" overridingVaultNamespace="">
+      <environmentVariable evdescription="" key="TEST_MESSAGE" value="Hello"/>
+      <evbindings>
+         <evbinding evLogicalItemId="-11c20520:1677a9b785e:-7ed2:-2046364207:408339756" evPhysicalItemId="-11c20520:1677a9b785e:-7ed2:1437688209:1544155186"/>
+      </evbindings>
+   </resourceConfig>
+</editableResource>
