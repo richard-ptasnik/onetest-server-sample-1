@@ -31,7 +31,7 @@ public class Class implements com.ibm.rational.test.lt.kernel.custom.ICustomCode
 		
 		String path = "Pages_Verification Points_v1_compatibility";
 		
-		tes.getTestLogManager().reportMessage("Testing localWBVersion=" + localWBVersion + " with expected expected compatible=" + expectedCompatible);
+		tes.getTestLogManager().reportMessage("Testing localWBVersion=" + localWBVersion + " with expected expected compatible=" + expectedCompatible + ", datasetInput=" + datasetInput);
 		if (expectedCompatible.compareTo("true") == 0) {
 			if (actuallyCompatible) {
 				testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_PASS);
@@ -50,9 +50,15 @@ public class Class implements com.ibm.rational.test.lt.kernel.custom.ICustomCode
 		}
 		
 		if (datasetInput.compareTo("PASS") == 0) {
+			tes.getTestLogManager().reportMessage("dataset verdict PASS");
 			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_PASS);
-		} else {
+		} else if (datasetInput.compareTo("FAIL") == 0) {
+			tes.getTestLogManager().reportMessage("dataset verdict FAIL");
 			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_FAIL);
+		} else {
+			tes.getTestLogManager().reportMessage("dataset NOT proper");
+			testlog.reportVerificationPoint(path, VerdictEvent.VERDICT_ERROR);
+			testlog.reportErrorCondition(RPTCondition.CustomCodeAlert);
 		}
 		
 		return null;
