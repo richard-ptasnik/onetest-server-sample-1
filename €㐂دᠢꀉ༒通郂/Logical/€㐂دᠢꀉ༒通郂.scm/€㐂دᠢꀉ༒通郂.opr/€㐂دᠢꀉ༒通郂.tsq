@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><editableResource createdTimestamp="1552080885460" createdUser="RICHARD.LITTLEJR" id="-1e03e496:1695f3a25d1:-7eb3" type="test_resource" updatedTimestamp="1573574035861" updatedUser="RICHARD.LITTLEJR" version="1.1">
+   <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+   <resourceConfig description="" name="">
+      <testTree>
+         <editableResource id="2b5e0b1a:16e3c40df08:-7e16" selfDescribing="Iterate over a test data set" type="iterate_action" version="1.0">
+            <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+            <resourceConfig description="" disableMappings="false" iterationContributor="true" maxIterationTime="0.0" maxIterationTimeExceededFailsTest="false" maxTotalIterationTime="0.0" maxTotalIterationTimeExceededFailsTest="false" name=" over €㐂دᠢꀉ༒通郂FileData iterations 1-3" option="NOTHING" pacingtime="0.0" pacingtype="MIN_DURATION" performanceDisableValidation="false" performanceInstances="1" performanceInterleave="false" performanceMaximumIterationTime="0" performanceMaximumTestTime="0" performanceUseMaximumIterationTime="false" performanceUseMaximumTestTime="false" remoteAgent="" reportingLogIterations="1" reportingLogLogMessages="8" reportingLogMessages="4" reportingLogScriptExitCodes="8" reportingLogScriptOutput="8" reportingLogTagValues="8" reportingLogTimes="8" runSettingsContinueOnFail="true" runSettingsDelayEnabled="false" runSettingsDelayType="Fixed Delay" runSettingsIterations="1-3" runSettingsMaximumDelayValue="0" runSettingsMinimumDelayValue="0" runSettingsRunFor="0" runSettingsRunType="Once Only" runSettingsTestDescription="" type="script:ECMAScript" useMaxIterationTime="false" useMaxTotalIterationTime="false" usepacing="false">
+               <testDataSetReference id="2b5e0b1a:16e3c40df08:-7e7f" lkname="€㐂دᠢꀉ༒通郂FileData" lkpath="€㐂دᠢꀉ༒通郂/€㐂دᠢꀉ༒通郂/€㐂دᠢꀉ༒通郂FileData" type="simple_test_data"/>
+               <mapper disableFiltersWhenEmpty="false" knownColumns="addr2,addr1,addr4,addr3" noAutoMap="">
+                  <mapping columnName="addr2" tagName="addr2" type="4"/>
+               </mapper>
+               <testTree>
+                  <editableResource id="23090fd4:16adad12433:-7e71" selfDescribing="The log actions enables you to output messages to console and a logging file." type="logging_action" version="1.0">
+                     <loggingConfiguration debug="false" writeStubEventsToDB="false"/>
+                     <resourceConfig append="true" description="" flush="true" loggingMessage="€㐂دᠢꀉ༒通郂&#10;addr2: %%addr2%%" name="€㐂دᠢꀉ༒通郂" outputFile="" role="0"/>
+                  </editableResource>
+               </testTree>
+            </resourceConfig>
+         </editableResource>
+      </testTree>
+      <tagDataStore inputMode="NONE" outputMode="NONE">
+         <tag defaultValue="" description="" name="addr2"/>
+      </tagDataStore>
+      <testprops messageClearance="false"/>
+   </resourceConfig>
+</editableResource>
